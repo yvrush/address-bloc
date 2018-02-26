@@ -16,6 +16,7 @@ class MenuController
       puts "4 - Import entries from a CSV"
       puts "5 - View Entry by Number n"
       puts "6 - Exit"
+      puts "7 - Hasta la Vista, Baby!"
       print "Enter your selection: "
 
 
@@ -43,6 +44,11 @@ class MenuController
     when 6
       puts "Good-bye!"
       exit(0)
+
+    when 7
+      system "clear"
+      delete_all
+
     else
       system "clear"
       puts "Sorry, that is not a valid input"
@@ -50,9 +56,13 @@ class MenuController
     end
   end
 
+  def delete_all
+    address_book.entries.clear
+    puts "I'll be back......"
+    main_menu
+  end
 
   def view_all_entries
-
     address_book.entries.each do |entry|
        system "clear"
        puts entry.to_s
